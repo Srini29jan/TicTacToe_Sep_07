@@ -40,9 +40,7 @@ public class Game {
         if (isAnyRowFilledByPlayer(PLAYER_X.value)
                 || isFirstColumnFilledByPlayer(PLAYER_X.value)
                 || isSecondColumnFilledByPlayer(PLAYER_X.value)
-                || (getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value
-                && getPlayerAt(POSITION_ONE, POSITION_TWO) == PLAYER_X.value
-                && getPlayerAt(POSITION_TWO, POSITION_TWO) == PLAYER_X.value)) {
+                || isThirdColumnFilledByPlayerX()) {
             winner = PLAYER_X.value;
         }
 
@@ -53,6 +51,12 @@ public class Game {
         }
 
         return winner;
+    }
+
+    private boolean isThirdColumnFilledByPlayerX() {
+        return getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ONE, POSITION_TWO) == PLAYER_X.value
+                && getPlayerAt(POSITION_TWO, POSITION_TWO) == PLAYER_X.value;
     }
 
     private boolean isSecondColumnFilledByPlayer(char player) {
