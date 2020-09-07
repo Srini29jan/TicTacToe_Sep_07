@@ -35,21 +35,21 @@ public class Game {
     }
 
     public char getWinner() {
-        if (isFirstRowFilledByPlayerX(PLAYER_X.value)) {
+        if (isFirstRowFilledByPlayer(PLAYER_X.value)) {
             return PLAYER_X.value;
         }
 
-        if (isFirstRowFilledByPlayerX(PLAYER_O.value)) {
+        if (isFirstRowFilledByPlayer(PLAYER_O.value)) {
             return PLAYER_O.value;
         }
 
         return CHARACTER_NULL;
     }
 
-    private boolean isFirstRowFilledByPlayerX(char playerX) {
-        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == playerX
-                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == playerX
-                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == playerX;
+    private boolean isFirstRowFilledByPlayer(char player) {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == player
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == player
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == player;
     }
 
 }
