@@ -35,7 +35,10 @@ public class Game {
     }
 
     public char getWinner() {
-        if (isFirstRowFilledByPlayer(PLAYER_X.value)) {
+        if ((isFirstRowFilledByPlayer(PLAYER_X.value))
+                || (getPlayerAt(POSITION_ONE, POSITION_ZERO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_X.value
+                && getPlayerAt(POSITION_ONE, POSITION_TWO) == PLAYER_X.value)) {
             return PLAYER_X.value;
         }
 
