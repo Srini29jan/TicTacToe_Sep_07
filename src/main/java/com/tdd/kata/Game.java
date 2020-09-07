@@ -40,7 +40,10 @@ public class Game {
             return PLAYER_X.value;
         }
 
-        if (isFirstRowFilledByPlayer(PLAYER_O.value)) {
+        if ((isFirstRowFilledByPlayer(PLAYER_O.value))
+                || (getPlayerAt(POSITION_ONE, POSITION_ZERO) == PLAYER_O.value
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_O.value
+                && getPlayerAt(POSITION_ONE, POSITION_TWO) == PLAYER_O.value)){
             return PLAYER_O.value;
         }
 
