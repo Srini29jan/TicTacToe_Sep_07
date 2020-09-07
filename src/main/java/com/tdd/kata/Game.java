@@ -39,7 +39,7 @@ public class Game {
             return PLAYER_X.value;
         }
 
-        if (isFirstRowFilledByPlayerO()) {
+        if (isFirstRowFilledByPlayerX(PLAYER_O.value)) {
             return PLAYER_O.value;
         }
 
@@ -52,9 +52,4 @@ public class Game {
                 && getPlayerAt(POSITION_ZERO, POSITION_TWO) == playerX;
     }
 
-    private boolean isFirstRowFilledByPlayerO() {
-        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value;
-    }
 }
