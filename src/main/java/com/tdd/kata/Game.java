@@ -37,7 +37,7 @@ public class Game {
     public char getWinner() {
         char winner = CHARACTER_NULL;
 
-        if (isAnyRowFilledByPlayerX()) {
+        if (isAnyRowFilledByPlayerO(PLAYER_X.value)) {
             winner = PLAYER_X.value;
         }
 
@@ -52,12 +52,6 @@ public class Game {
         return isRowFilledByPlayer(POSITION_ZERO, playerO)
                 || isRowFilledByPlayer(POSITION_ONE, playerO)
                 || isRowFilledByPlayer(POSITION_TWO, playerO);
-    }
-
-    private boolean isAnyRowFilledByPlayerX() {
-        return isRowFilledByPlayer(POSITION_ZERO, PLAYER_X.value)
-                || isRowFilledByPlayer(POSITION_ONE, PLAYER_X.value)
-                || isRowFilledByPlayer(POSITION_TWO, PLAYER_X.value);
     }
 
     private boolean isRowFilledByPlayer(int rowPosition, char player) {
