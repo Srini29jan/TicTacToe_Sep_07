@@ -5,13 +5,16 @@ import static com.tdd.kata.Player.PLAYER_X;
 
 public class Game {
 
-    private static final int GRID_SIZE = 3;
-    private final char[][] board = new char[GRID_SIZE][GRID_SIZE];
     private char previousPlayer;
+    private final Board board;
+
+    public Game() {
+        board = new Board();
+    }
 
     public void playAt(int row, int column) {
         char currentPlayer = getCurrentPlayer();
-        board[row][column] = currentPlayer;
+        board.playAt(row, column, currentPlayer);
         setPreviousPlayer(currentPlayer);
     }
 
@@ -24,6 +27,6 @@ public class Game {
     }
 
     public char getPlayerAt(int row, int column) {
-        return board[row][column];
+        return board.getPlayerAt(row, column);
     }
 }
