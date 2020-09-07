@@ -37,21 +37,21 @@ public class Game {
     public char getWinner() {
         char winner = CHARACTER_NULL;
 
-        if (isGameWonByPlayerO(PLAYER_X.value)) {
+        if (isGameWonByPlayer(PLAYER_X.value)) {
             winner = PLAYER_X.value;
         }
 
-        if (isGameWonByPlayerO(PLAYER_O.value)) {
+        if (isGameWonByPlayer(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isGameWonByPlayerO(char playerO) {
-        return isAnyRowFilledByPlayer(playerO)
-                || isAnyColumnFilledByPlayer(playerO)
-                || isAnyDiagonalFilledByPlayer(playerO);
+    private boolean isGameWonByPlayer(char player) {
+        return isAnyRowFilledByPlayer(player)
+                || isAnyColumnFilledByPlayer(player)
+                || isAnyDiagonalFilledByPlayer(player);
     }
 
     private boolean isAnyDiagonalFilledByPlayer(char player) {
