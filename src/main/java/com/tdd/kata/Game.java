@@ -8,6 +8,7 @@ public class Game {
     private static final int POSITION_ZERO = 0;
     private static final int POSITION_ONE = 1;
     private static final int POSITION_TWO = 2;
+    private static final char CHARACTER_NULL = '\0';
     private char previousPlayer;
     private final Board board;
 
@@ -34,16 +35,26 @@ public class Game {
     }
 
     public char getWinner() {
-        if (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value) {
+        if (isFirstRowFilledByPlayerX()) {
             return PLAYER_X.value;
         }
 
-        if (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value) {
+        if (isFirstRowFilledByPlayerO()) {
             return PLAYER_O.value;
         }
 
-        return '\0';
+        return CHARACTER_NULL;
+    }
+
+    private boolean isFirstRowFilledByPlayerX() {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_X.value
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value;
+    }
+
+    private boolean isFirstRowFilledByPlayerO() {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value;
     }
 }
